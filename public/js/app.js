@@ -5301,12 +5301,75 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
+/* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! axios */ "./node_modules/axios/index.js");
+/* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(axios__WEBPACK_IMPORTED_MODULE_0__);
 //
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
-  name: "UserComponent"
+  name: "UserComponent",
+  data: function data() {
+    return {
+      loading: true,
+      users: []
+    };
+  },
+  mounted: function mounted() {
+    this.getUsers();
+  },
+  methods: {
+    getUsers: function getUsers() {
+      var _this = this;
+
+      axios__WEBPACK_IMPORTED_MODULE_0___default().get('/users/all').then(function (res) {
+        _this.users = res.data;
+        _this.loading = false;
+      });
+    },
+    deleteUser: function deleteUser(id) {
+      var _this2 = this;
+
+      axios__WEBPACK_IMPORTED_MODULE_0___default().get('/users/destroy/' + id).then(function (response) {
+        var i = _this2.users.map(function (data) {
+          return data.id;
+        }).indexOf(id);
+
+        _this2.users.splice(i, 1);
+
+        alert(response.data);
+      });
+    }
+  }
 });
 
 /***/ }),
@@ -28249,9 +28312,63 @@ var render = function () {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c("h1", [_vm._v("User component")])
+  return _c("div", { staticClass: "container" }, [
+    _c("table", [
+      _vm._m(0),
+      _vm._v(" "),
+      _c(
+        "tbody",
+        _vm._l(_vm.users, function (row) {
+          return _c("tr", { key: row.id }, [
+            _c("td", [_vm._v(_vm._s(row.id))]),
+            _vm._v(" "),
+            _c("td", [_vm._v(_vm._s(row.name))]),
+            _vm._v(" "),
+            _c("td", [_vm._v(_vm._s(row.email))]),
+            _vm._v(" "),
+            _c("td", [
+              _c(
+                "div",
+                { staticClass: "btn-group", attrs: { role: "group" } },
+                [
+                  _c(
+                    "button",
+                    {
+                      staticClass: "btn btn-danger",
+                      on: {
+                        click: function ($event) {
+                          return _vm.deleteUser(row.id)
+                        },
+                      },
+                    },
+                    [_vm._v("Delete")]
+                  ),
+                ]
+              ),
+            ]),
+          ])
+        }),
+        0
+      ),
+    ]),
+  ])
 }
-var staticRenderFns = []
+var staticRenderFns = [
+  function () {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("thead", [
+      _c("tr", [
+        _c("th", { staticClass: "col-md-2" }, [_vm._v("#")]),
+        _vm._v(" "),
+        _c("th", { staticClass: "col-md-5" }, [_vm._v("name")]),
+        _vm._v(" "),
+        _c("th", { staticClass: "col-md-5" }, [_vm._v("email")]),
+      ]),
+    ])
+  },
+]
 render._withStripped = true
 
 
@@ -40316,6 +40433,18 @@ module.exports = JSON.parse('{"name":"axios","version":"0.21.4","description":"P
 /******/ 				}
 /******/ 			}
 /******/ 			return result;
+/******/ 		};
+/******/ 	})();
+/******/ 	
+/******/ 	/* webpack/runtime/compat get default export */
+/******/ 	(() => {
+/******/ 		// getDefaultExport function for compatibility with non-harmony modules
+/******/ 		__webpack_require__.n = (module) => {
+/******/ 			var getter = module && module.__esModule ?
+/******/ 				() => (module['default']) :
+/******/ 				() => (module);
+/******/ 			__webpack_require__.d(getter, { a: getter });
+/******/ 			return getter;
 /******/ 		};
 /******/ 	})();
 /******/ 	

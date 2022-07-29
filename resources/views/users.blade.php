@@ -22,8 +22,8 @@
 </div>
 
 <div class="pricing-header px-3 py-3 pt-md-5 pb-md-4 mx-auto text-center">
-    <h1 class="display-4">Reporting databases</h1>
-    <p class="lead">Quick selection of applications and reporting period</p>
+    <h1 class="display-4">Users</h1>
+    <p class="lead">Information about users</p>
 </div>
 
 <user-component></user-component>
