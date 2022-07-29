@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\UserController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -20,3 +21,9 @@ Route::get('/', function () {
 Auth::routes(['verify' => true]);
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->middleware('verified')->name('home');
+Route::get('/users', function () {
+    return view('users');
+})->name('users');
+
+Route::get('/users/all', [UserController::class,'index']);
+Route::get('/users/destroy/{id}', [UserController::class,'destroy']);
