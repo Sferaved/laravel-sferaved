@@ -1,4 +1,4 @@
-@extends('layouts.app')
+@extends('layouts.admin')
 
 @section('content')
 <div class="container">
@@ -21,10 +21,10 @@
     </div>
 </div>
 
-<div class="pricing-header px-3 py-3 pt-md-5 pb-md-4 mx-auto text-center">
-    <h1 class="display-4">Users</h1>
-    <p class="lead">Information about users</p>
-</div>
 
-<user-component></user-component>
+
+<div id="app">
+    <router-view></router-view>
+</div>
+<script src="/js/app.js"></script>
 @endsection

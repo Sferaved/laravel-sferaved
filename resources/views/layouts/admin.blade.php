@@ -25,7 +25,7 @@
         <nav class="navbar navbar-expand-md navbar-light bg-white shadow-sm">
             <div class="container">
                 <a class="navbar-brand" href="{{ url('/') }}">
-                    {{ config('app.name', 'Sferaved') }}
+                    {{ config('app.name', 'Laravel') }}
                 </a>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="{{ __('Toggle navigation') }}">
                     <span class="navbar-toggler-icon"></span>
@@ -37,12 +37,12 @@
                     <nav class="nav">
                         <label for="nav-toggle" class="nav-toggle" onclick></label>
                         <ul class="navbar-nav">
-                            <li><a href="https://sota-buh.com.ua/account/login?ReturnUrl=%2Fedo">Сота</a>
-                            <li><a href="https://vchasno.ua/auth/login">Вчасно</a>
-                            <li><a href="https://www.mdoffice.com.ua">MD Office</a>
-                            <li><a href="https://www.mdoffice.com.ua/ua/aMDONormDocs.CustCodecs2012">МКУ</a>
-                            <li><a href="https://www.mdoffice.com.ua/ua/aMDOTNVD2020.GetTNVUA">УктЗЕД</a>
-                            <li><a href="{{ route('admin') }}">Admin</a>
+                            <li><a href="https://176.57.71.92:8083">VestaCP</a>
+                            <li><a href="https://176.57.71.92:8083/list/filemanager/">FileManager</a>
+                            <li><a href="http://176.57.71.92/phpmyadmin/">PhpMyadmin</a>
+                            <li><a href="https://cp.zomro.com/billmgr">Zomro</a>
+                            <li><router-link to="/admin/users">Users</router-link></li>
+                            <li><a href="{{ route('home') }}">Home</a>
                         </ul>
                     </nav>
                     <!-- Right Side Of Navbar -->
