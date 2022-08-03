@@ -7,7 +7,10 @@
     <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
-    <title>{{ config('app.name', 'Laravel') }}</title>
+    <title>{{ config('app.name') }}</title>
+    <head>
+        <link rel="shortcut icon" href="{{ asset('img/favicon.ico') }}">
+    </head>
 
     <!-- Scripts -->
     <script src="{{ asset('js/app.js') }}" defer></script>

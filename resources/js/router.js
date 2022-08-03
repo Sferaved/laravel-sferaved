@@ -5,6 +5,7 @@ Vue.use(vueRouter);
 
 import Index from './views/Index';
 import Users from './views/user/UserHome';
+import UserEdit from './views/user/UserEdit';
 
 const  routes = [
     {
@@ -14,6 +15,12 @@ const  routes = [
     {
         path: "/admin/users",
         component: Users
+    },
+    {
+        name: 'UserEdit',
+        path: "/admin/users/edit/:id",
+        component: UserEdit
+
     }
     ];
 

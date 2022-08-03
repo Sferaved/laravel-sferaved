@@ -25,6 +25,7 @@ Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->midd
 
 Route::get('/users/all', [UserController::class,'index'])->middleware('verified');
 Route::get('/users/destroy/{id}', [UserController::class,'destroy'])->middleware('verified');
+Route::get('/users/show/{id}', [UserController::class,'show'])->middleware('verified');
 
 Route::get('/admin', function () {
     return view('admin.home');
