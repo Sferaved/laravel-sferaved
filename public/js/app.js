@@ -5398,28 +5398,25 @@ __webpack_require__.r(__webpack_exports__);
 
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   name: "UserEdit",
-  data: function data() {
-    return {
-      loading: true,
-      users: [],
-      id: '',
-      name: 'name',
-      email: 'email@email',
-      password: '',
-      password_confirmation: ''
-    };
-  },
-  mounted: function mounted() {
-    this.getUsers();
+  props: {
+    name: {
+      type: String,
+      "default": ""
+    },
+    email: {
+      type: String,
+      "default": ""
+    },
+    data: function data() {
+      return {
+        password: "",
+        password_confirmation: ""
+      };
+    }
   },
   methods: {
-    getUsers: function getUsers() {
-      var _this = this;
-
-      axios__WEBPACK_IMPORTED_MODULE_0___default().get('/users/all').then(function (res) {
-        _this.users = res.data;
-        _this.loading = false;
-      });
+    Submit: function Submit() {
+      axios__WEBPACK_IMPORTED_MODULE_0___default().post('/users/all').then();
     }
   }
 });
@@ -5439,10 +5436,6 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ });
 /* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! axios */ "./node_modules/axios/index.js");
 /* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(axios__WEBPACK_IMPORTED_MODULE_0__);
-//
-//
-//
-//
 //
 //
 //
@@ -5551,6 +5544,11 @@ __webpack_require__.r(__webpack_exports__);
         _this2.users.splice(i, 1);
 
         alert(response.data);
+      });
+    },
+    editUser: function editUser(id, name, email) {
+      axios__WEBPACK_IMPORTED_MODULE_0___default().get('/users/edit/' + id + '/' + name + '/' + email).then(function (ret) {
+        console.log(ret.data);
       });
     }
   }
@@ -30640,12 +30638,7 @@ var render = function () {
                       },
                     ],
                     staticClass: "form-control",
-                    attrs: {
-                      id: "email",
-                      value: "email",
-                      required: "",
-                      autocomplete: "email",
-                    },
+                    attrs: { id: "email", required: "", autocomplete: "email" },
                     domProps: { value: _vm.email },
                     on: {
                       input: function ($event) {
@@ -30747,7 +30740,7 @@ var render = function () {
                     {
                       staticClass: "btn btn-primary",
                       attrs: { type: "submit" },
-                      on: { click: _vm.edit },
+                      on: { click: _vm.Submit },
                     },
                     [
                       _vm._v(
@@ -30873,8 +30866,6 @@ var render = function () {
                         }),
                       ]),
                       _vm._v(" "),
-                      _c("td"),
-                      _vm._v(" "),
                       _c("td", [
                         _c("input", {
                           directives: [
@@ -30939,15 +30930,54 @@ var render = function () {
                         _c("td", [_vm._v(_vm._s(row.id))]),
                         _vm._v(" "),
                         _c("td", [
-                          _c("img", {
-                            staticStyle: { width: "50px" },
-                            attrs: { src: row.avatar, alt: "" },
+                          _c("input", {
+                            directives: [
+                              {
+                                name: "model",
+                                rawName: "v-model.text",
+                                value: row.name,
+                                expression: "row.name",
+                                modifiers: { text: true },
+                              },
+                            ],
+                            staticClass: "form-control",
+                            attrs: { id: "name", required: "" },
+                            domProps: { value: row.name },
+                            on: {
+                              input: function ($event) {
+                                if ($event.target.composing) {
+                                  return
+                                }
+                                _vm.$set(row, "name", $event.target.value)
+                              },
+                            },
                           }),
                         ]),
                         _vm._v(" "),
-                        _c("td", [_vm._v(_vm._s(row.name))]),
-                        _vm._v(" "),
-                        _c("td", [_vm._v(_vm._s(row.email))]),
+                        _c("td", [
+                          _c("input", {
+                            directives: [
+                              {
+                                name: "model",
+                                rawName: "v-model.text",
+                                value: row.email,
+                                expression: "row.email",
+                                modifiers: { text: true },
+                              },
+                            ],
+                            staticClass: "form-control",
+                            attrs: { id: "name", required: "" },
+                            domProps: { value: row.email },
+                            on: {
+                              input: function ($event) {
+                                if ($event.target.composing) {
+                                  return
+                                }
+                                _vm.$set(row, "email", $event.target.value)
+                              },
+                            },
+                          }),
+                        ]),
                         _vm._v(" "),
                         _c("td", [
                           _c(
@@ -30958,13 +30988,17 @@ var render = function () {
                             },
                             [
                               _c(
-                                "router-link",
+                                "button",
                                 {
                                   staticClass: "btn btn-success",
-                                  attrs: {
-                                    to: {
-                                      name: "UserEdit",
-                                      params: { id: row.id },
+                                  staticStyle: { "margin-left": "5px" },
+                                  on: {
+                                    click: function ($event) {
+                                      return _vm.editUser(
+                                        row.id,
+                                        row.name,
+                                        row.email
+                                      )
                                     },
                                   },
                                 },
@@ -30972,7 +31006,7 @@ var render = function () {
                                   _c(
                                     "svg",
                                     {
-                                      staticClass: "bi bi-pencil-square",
+                                      staticClass: "bi bi-save2",
                                       attrs: {
                                         xmlns: "http://www.w3.org/2000/svg",
                                         width: "16",
@@ -30984,14 +31018,7 @@ var render = function () {
                                     [
                                       _c("path", {
                                         attrs: {
-                                          d: "M15.502 1.94a.5.5 0 0 1 0 .706L14.459 3.69l-2-2L13.502.646a.5.5 0 0 1 .707 0l1.293 1.293zm-1.75 2.456-2-2L4.939 9.21a.5.5 0 0 0-.121.196l-.805 2.414a.25.25 0 0 0 .316.316l2.414-.805a.5.5 0 0 0 .196-.12l6.813-6.814z",
-                                        },
-                                      }),
-                                      _vm._v(" "),
-                                      _c("path", {
-                                        attrs: {
-                                          "fill-rule": "evenodd",
-                                          d: "M1 13.5A1.5 1.5 0 0 0 2.5 15h11a1.5 1.5 0 0 0 1.5-1.5v-6a.5.5 0 0 0-1 0v6a.5.5 0 0 1-.5.5h-11a.5.5 0 0 1-.5-.5v-11a.5.5 0 0 1 .5-.5H9a.5.5 0 0 0 0-1H2.5A1.5 1.5 0 0 0 1 2.5v11z",
+                                          d: "M2 1a1 1 0 0 0-1 1v12a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1V2a1 1 0 0 0-1-1H9.5a1 1 0 0 0-1 1v4.5h2a.5.5 0 0 1 .354.854l-2.5 2.5a.5.5 0 0 1-.708 0l-2.5-2.5A.5.5 0 0 1 5.5 6.5h2V2a2 2 0 0 1 2-2H14a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V2a2 2 0 0 1 2-2h2.5a.5.5 0 0 1 0 1H2z",
                                         },
                                       }),
                                     ]
@@ -31040,8 +31067,7 @@ var render = function () {
                                   ),
                                 ]
                               ),
-                            ],
-                            1
+                            ]
                           ),
                         ]),
                       ])
@@ -31059,8 +31085,6 @@ var render = function () {
             { attrs: { slot: "head" }, slot: "head" },
             [
               _c("v-th", { attrs: { sortKey: "id" } }, [_vm._v("#")]),
-              _vm._v(" "),
-              _c("v-th"),
               _vm._v(" "),
               _c("v-th", { attrs: { sortKey: "name" } }, [_vm._v("Name")]),
               _vm._v(" "),

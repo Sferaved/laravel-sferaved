@@ -23,9 +23,11 @@ Auth::routes(['verify' => true]);
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->middleware('verified')->name('home');
 
 
-Route::get('/users/all', [UserController::class,'index'])->middleware('verified');
+Route::get('/users/all', [UserController::class,'index']);
 Route::get('/users/destroy/{id}', [UserController::class,'destroy'])->middleware('verified');
-Route::get('/users/show/{id}', [UserController::class,'show'])->middleware('verified');
+Route::get('/users/edit/{id}/{name}/{email}', [UserController::class,'edit']);
+
+Route::get('/users/show/{id}', [UserController::class,'show']);
 
 Route::get('/admin', function () {
     return view('admin.home');

@@ -25,7 +25,7 @@
                                 <label for="email" class="col-md-4 col-form-label text-md-end">Email Address</label>
 
                                 <div class="col-md-6">
-                                    <input id="email" class="form-control " v-model.email="email" value="email" required autocomplete="email">
+                                    <input id="email" class="form-control " v-model.email="email" required autocomplete="email">
 
 
                                 </div>
@@ -35,7 +35,7 @@
                                 <label for="password" class="col-md-4 col-form-label text-md-end">{{ 'Password' }}</label>
 
                                 <div class="col-md-6">
-                                    <input id="password" class="form-control" v-model.password="password" required autocomplete="new-password" >
+                                    <input id="password" class="form-control" v-model.password = "password" required autocomplete="new-password" >
 
                                 </div>
                             </div>
@@ -44,13 +44,13 @@
                                 <label for="password-confirm" class="col-md-4 col-form-label text-md-end">{{'Confirm Password' }}</label>
 
                                 <div class="col-md-6">
-                                    <input id="password-confirm" type="password" class="form-control" v-model.password="password_confirmation" required autocomplete="new-password">
+                                    <input id="password-confirm" type="password" class="form-control" v-model.password = "password_confirmation" required autocomplete="new-password">
                                 </div>
                             </div>
 
                             <div class="row mb-0">
                                 <div class="col-md-6 offset-md-4">
-                                    <button type="submit"  @click="edit" class="btn btn-primary">
+                                    <button type="submit"  @click="Submit" class="btn btn-primary">
                                         Confirm
                                     </button>
                                 </div>
@@ -65,34 +65,33 @@
 
 
 <script>
-import axios from 'axios';
-export default {
-    name: "UserEdit",
-    data: () => ({
-        loading: true,
-        users: [],
-        id: '',
-        name: 'name',
-        email: 'email@email',
-        password: '',
-        password_confirmation: '',
+    import axios from "axios";
 
-    }),
-    mounted() {
-        this.getUsers()
-    },
-    methods: {
-        getUsers() {
-            axios.get('/users/all')
-                .then(
-                    res => {
-                        this.users = res.data;
-                        this.loading = false
-                    }
-                )
+    export default {
+        name: "UserEdit",
+        props: {
+            name: {
+                type: String,
+                default: ""
+            },
+            email: {
+                type: String,
+                default: ""
+            },
+
+            data: () => ({
+                password: "",
+                password_confirmation: ""
+            }),
+        },
+        methods: {
+            Submit() {
+                 axios.post('/users/all')
+                        .then(
+                        )
+                }
+            }
         }
-    }
-}
 </script>
 <style scoped>
 

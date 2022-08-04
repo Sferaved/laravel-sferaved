@@ -16,14 +16,12 @@
         >
             <thead slot="head">
             <v-th sortKey="id">#</v-th>
-            <v-th ></v-th>
             <v-th sortKey="name" >Name</v-th>
             <v-th sortKey="email">Email</v-th>
             </thead>
             <tbody slot="body" slot-scope="{displayData}">
             <tr>
                 <td><input class="form-input input-sm" v-model="filters.id.value" placeholder="Select by id"></td>
-                <td></td>
                 <td><input class="form-input input-lg" v-model="filters.name.value" placeholder="Select by name"></td>
                 <td> <input class="form-input input-lg" v-model="filters.email.value"  placeholder="Select by email"></td>
                 <td></td>
@@ -31,17 +29,15 @@
             <tr v-for="row in displayData" :key="row.id">
                 <td>{{ row.id }}</td>
 
-                <td><img :src="( row.avatar )" style="width: 50px" alt=""></td>
-                <td>{{ row.name }}</td>
-                <td>{{ row.email }}</td>
+                <td> <input id="name" class="form-control" v-model.text="row.name" required ></td>
+                <td><input id="name" class="form-control" v-model.text="row.email" required ></td>
                 <td>
                     <div class="btn-group" role="group">
-                        <router-link :to="{name: 'UserEdit', params: { id: row.id }}" class="btn btn-success">
-                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-pencil-square" viewBox="0 0 16 16">
-                                <path d="M15.502 1.94a.5.5 0 0 1 0 .706L14.459 3.69l-2-2L13.502.646a.5.5 0 0 1 .707 0l1.293 1.293zm-1.75 2.456-2-2L4.939 9.21a.5.5 0 0 0-.121.196l-.805 2.414a.25.25 0 0 0 .316.316l2.414-.805a.5.5 0 0 0 .196-.12l6.813-6.814z"/>
-                                <path fill-rule="evenodd" d="M1 13.5A1.5 1.5 0 0 0 2.5 15h11a1.5 1.5 0 0 0 1.5-1.5v-6a.5.5 0 0 0-1 0v6a.5.5 0 0 1-.5.5h-11a.5.5 0 0 1-.5-.5v-11a.5.5 0 0 1 .5-.5H9a.5.5 0 0 0 0-1H2.5A1.5 1.5 0 0 0 1 2.5v11z"/>
+                        <button class="btn btn-success" @click="editUser(row.id, row.name, row.email)" style="margin-left: 5px">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-save2" viewBox="0 0 16 16">
+                                <path d="M2 1a1 1 0 0 0-1 1v12a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1V2a1 1 0 0 0-1-1H9.5a1 1 0 0 0-1 1v4.5h2a.5.5 0 0 1 .354.854l-2.5 2.5a.5.5 0 0 1-.708 0l-2.5-2.5A.5.5 0 0 1 5.5 6.5h2V2a2 2 0 0 1 2-2H14a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V2a2 2 0 0 1 2-2h2.5a.5.5 0 0 1 0 1H2z"/>
                             </svg>
-                        </router-link>
+                        </button>
                         <button class="btn btn-danger" @click="deleteUser(row.id)" style="margin-left: 5px">
                             <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-trash" viewBox="0 0 16 16">
                                 <path d="M5.5 5.5A.5.5 0 0 1 6 6v6a.5.5 0 0 1-1 0V6a.5.5 0 0 1 .5-.5zm2.5 0a.5.5 0 0 1 .5.5v6a.5.5 0 0 1-1 0V6a.5.5 0 0 1 .5-.5zm3 .5a.5.5 0 0 0-1 0v6a.5.5 0 0 0 1 0V6z"/>
@@ -98,7 +94,14 @@ export default {
                     this.users.splice(i, 1);
                     alert(response.data)
                 });
+        },
+        editUser(id, name, email) {
+            axios.get('/users/edit/'+ id +'/'+name+'/'+email)
+                .then(function(ret) {
+                    console.log(ret.data)
+                })
         }
+
     }
 }
 </script>
