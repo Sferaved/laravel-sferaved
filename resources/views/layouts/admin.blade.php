@@ -44,6 +44,7 @@
                             <li><a href="https://176.57.71.92:8083/list/filemanager/">FileManager</a>
                             <li><a href="http://176.57.71.92/phpmyadmin/">PhpMyadmin</a>
                             <li><a href="https://cp.zomro.com/billmgr">Zomro</a>
+                            <li><a href="{{ asset('/laratrust') }}">Role</a>
                             <li><router-link to="/admin/users">Users</router-link></li>
                             <li><a href="{{ route('home') }}">Home</a>
                         </ul>

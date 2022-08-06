@@ -31,8 +31,8 @@ Route::get('/users/show/{id}', [UserController::class,'show']);
 
 Route::get('/admin', function () {
     return view('admin.home');
-})->name('admin');
+})->name('admin')->middleware('role:superadministrator');
 
 Route::get('/admin/{any}', function () {
     return view('admin.home');
-})->where('any', '.*');
+})->where('any', '.*')->middleware('role:superadministrator');
