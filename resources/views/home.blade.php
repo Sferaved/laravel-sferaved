@@ -57,7 +57,27 @@
                     <div class="card-body">
                         <h1 class="card-title pricing-card-title"> <small class="text-muted"></small></h1>
                         <ol>01.12.2022 - 31.12.2022</ol>
-                        <a type="button" href="http://www.korzhov-office.ru" class="btn btn-lg btn-block btn-outline-primary">Get started</a>
+                        <a type="button" href="https://sferaved-office-online.ru/" class="btn btn-lg btn-block btn-primary">Get started</a>
+                    </div>
+                </div>
+                <div class="col-md-3 card mb-4  ">
+                    <div class="card-header">
+                        <h4 class="my-0 font-weight-normal">Taxi ADMIN</h4>
+                    </div>
+                    <div class="card-body">
+                        <h1 class="card-title pricing-card-title"> <small class="text-muted"></small></h1>
+                        <ol>Kiev</ol>
+                        <a type="button" href="https://m.easy-order-taxi.site/home" class="btn btn-lg btn-block btn-primary">Get started</a>
+                    </div>
+                </div>
+                <div class="offset-md-1 col-md-3 card mb-4  ">
+                    <div class="card-header">
+                        <h4 class="my-0 font-weight-normal">Taxi Web</h4>
+                    </div>
+                    <div class="card-body">
+                        <h1 class="card-title pricing-card-title"> <small class="text-muted"></small></h1>
+                        <ol>Kiev</ol>
+                        <a type="button" href="https://easy-order-taxi.site" class="btn btn-lg btn-block btn-outline-primary">Get started</a>
                     </div>
                 </div>
             </div>
