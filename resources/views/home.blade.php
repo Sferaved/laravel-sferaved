@@ -70,7 +70,7 @@
                     <div class="card-body">
                         <h1 class="card-title pricing-card-title"> <small class="text-muted"></small></h1>
                          01.12.23 - 31.12.23
-                        <a type="button" href="https://sferaved-office-online.ru/" class="btn btn-lg btn-block btn-outline-primary"
+                        <a type="button" href="https://korzhov-office.kharkiv.ua/" class="btn btn-lg btn-block btn-outline-primary"
                            target="_blank">Get started</a>
                     </div>
                 </div>
