@@ -62,14 +62,26 @@
                         target="_blank">Get started</a>
                     </div>
                 </div>
-
                 <div class="offset-md-1 col-md-2 card mb-4  ">
                     <div class="card-header">
-                        <h4 class="my-0 font-weight-normal">2023</h4>
+                        <h4 class="my-0 font-weight-normal">2022</h4>
                     </div>
                     <div class="card-body">
                         <h1 class="card-title pricing-card-title"> <small class="text-muted"></small></h1>
-                         01.12.23 - 31.12.23
+                        01.01.23 - 31.12.23
+                        <a type="button" href="https://of2023" class="btn btn-lg btn-block btn-primary"
+                        target="_blank">Get started</a>
+                    </div>
+                </div>
+
+
+                 <div class="col-md-2 card mb-4  ">
+                    <div class="card-header">
+                        <h4 class="my-0 font-weight-normal">2024</h4>
+                    </div>
+                    <div class="card-body">
+                        <h1 class="card-title pricing-card-title"> <small class="text-muted"></small></h1>
+                         01.12.24 - 31.12.24
                         <a type="button" href="https://korzhov-office.kharkiv.ua/" class="btn btn-lg btn-block btn-outline-primary"
                            target="_blank">Get started</a>
                     </div>
