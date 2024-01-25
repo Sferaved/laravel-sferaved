@@ -64,7 +64,7 @@
                 </div>
                 <div class="offset-md-1 col-md-2 card mb-4  ">
                     <div class="card-header">
-                        <h4 class="my-0 font-weight-normal">2022</h4>
+                        <h4 class="my-0 font-weight-normal">2023</h4>
                     </div>
                     <div class="card-body">
                         <h1 class="card-title pricing-card-title"> <small class="text-muted"></small></h1>
