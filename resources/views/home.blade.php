@@ -77,12 +77,12 @@
 
                  <div class="col-md-2 card mb-4  ">
                     <div class="card-header">
-                        <h4 class="my-0 font-weight-normal">2024</h4>
+                        <h4 class="my-0 font-weight-normal">2023-2024</h4>
                     </div>
                     <div class="card-body">
                         <h1 class="card-title pricing-card-title"> <small class="text-muted"></small></h1>
                          01.12.24 - 31.12.24
-                        <a type="button" href="https://korzhov-office.kharkiv.ua/" class="btn btn-lg btn-block btn-outline-primary"
+                        <a type="button" href="http://of2024" class="btn btn-lg btn-block btn-outline-primary"
                            target="_blank">Get started</a>
                     </div>
                 </div>
